@@ -1,4 +1,9 @@
-import csv_list
+import csv
+csv_path = './static/incendios.csv'
+csv_obj = csv.DictReader(open(csv_path, 'r'))
+csv_list = list(csv_obj)
+csv_dict = dict([[o['IDPIF'], o] for o in csv_list])
+
 import os
 from flask import Flask
 from flask import render_template
