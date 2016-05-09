@@ -1,11 +1,18 @@
+import csv_list
+import os
 from flask import Flask
 from flask import render_template
 app = Flask(__name__)
 
 @app.route("/")
 def index():
-	return render_template('index.html')
-import os
+	return render_template('index.html',
+	object_list=csv_list)
+
+@app.route('/<number>/')
+def detail(number):
+	return render_template('detail.html')
+
 app.run(host=os.getenv('IP', '0.0.0.0'), port=int(os.getenv('PORT', 8080)))
 if __name__ == '__main__':
 								    app.run(
@@ -14,3 +21,4 @@ if __name__ == '__main__':
 								        use_reloader=True,
 								        debug=True,
 								    )
+'</number>'
