@@ -1,1 +1,16 @@
-<h1>Esto es una prueba</h1>
+<body>
+	  <h1>Incendio de {{ object['COMUNIDAD'].decode('UTF-8') }}</h1>
+	  <p>En la comunidad {{ object['COMUNIDAD'].decode('UTF-8') }},
+			provincia {{ object['PROVINCIA'].decode('UTF-8') }},
+			comarca {{ object['COMARCA'].decode('UTF-8') }},
+			municipio {{ object['MUNICIPIO'].decode('UTF-8') }} se quemó una
+			superficie forestal de {{ object['SUPQUEMADA'] }}.
+			Hubieron {{ object['MUERTOS'] }} muertos y {{ object['HERIDOS'] }}
+			heridos. Se detectó en la fecha {{ object['FECHA'] }}. Se pudo
+			controlar en {{ object['TIME_CTRL'] }} minutos y extinguir
+			en {{ object['TIME_EXT'] }} minutos. La causa del incendio
+			fue {{ object['CAUSA'].decode('UTF-8') }}. En la extinción
+			del incendio participaron {{ object['PERSONAL'] }} personas,
+			{{ object['PESADOS'] }} vehiculos pesados y {{ object['AEREOS'] }}
+			medios aereos.</p>
+	</body>
