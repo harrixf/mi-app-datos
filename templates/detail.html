@@ -1,3 +1,9 @@
+<!doctype html>
+		<html lang="es">
+<head>
+					<meta name="Incendios en Castilla y León"  content="text/html;"
+					http-equiv="content-type" charset="utf-8">
+				</head>
 <body>
 	  <h1>Incendio de {{ object['COMUNIDAD'].decode('UTF-8') }}</h1>
 	  <p>En la comunidad {{ object['COMUNIDAD'].decode('UTF-8') }},
@@ -13,4 +19,15 @@
 			del incendio participaron {{ object['PERSONAL'] }} personas,
 			{{ object['PESADOS'] }} vehiculos pesados y {{ object['AEREOS'] }}
 			medios aereos.</p>
+		 <script type="text/javascript">
+							        var map = L.map('map').setView([{{ object['LONGITUD'] }}, {{ object['LATITUD'] }}], 16);
+							        var mapquestLayer = new L.TileLayer('http://{s}.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.png', {
+							            maxZoom: 18,
+							            attribution: 'Data, imagery and map information provided by <a href="http://open.mapquest.co.uk" target="_blank">MapQuest</a>,<a href="http://www.openstreetmap.org/" target="_blank">OpenStreetMap</a> and contributors.',
+							            subdomains: ['otile1','otile2','otile3','otile4']
+							        });
+							        map.addLayer(mapquestLayer);
+							        var marker = L.marker([{{ object['LONGITUD'] }}, {{ object['LATITUD'] }}]).addTo(map);
+							    </script>
 	</body>
+</html>
