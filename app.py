@@ -1,8 +1,9 @@
 import csv
 import os
+import json
 from flask import Flask
 from flask import render_template
-from flask import send_from_directory
+from flask import send_from_directory, jsonify
 app = Flask(__name__, static_url_path='')
 
 
@@ -16,6 +17,14 @@ def index():
     return render_template('index.html',
         object_list=csv_list,
     )
+
+@app.route('/data.json')
+def allJSON():
+    return json.dumps(csv_list)
+    
+@app.route('/<number>.json')
+def detailJSON(number):
+    return jsonify(csv_dict[number])
 
 @app.route('/libs/<path:path>')
 def send_js(path):
