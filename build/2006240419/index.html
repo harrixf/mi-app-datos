@@ -1,0 +1,36 @@
+<!doctype html>
+		<html lang="es">
+<head>
+    <link rel="stylesheet" href="/libs/leaflet.css"/>
+    <script type="text/javascript" src="/libs/leaflet.js"></script>
+	<meta name="Incendios en Castilla y León"  content="text/html" http-equiv="content-type" charset="utf-8">
+</head>
+<body>
+	<div id="map" style="width:100%; height:300px;"></div>
+	
+	  <h1>Incendio de CASTILLA Y LEON</h1>
+	  <p>En la comunidad CASTILLA Y LEON,
+			provincia LEON,
+			comarca LA VECILLA-LA ROBLA,
+			municipio POLA DE GORDON LA se quemó una
+			superficie forestal de 158.0.
+			Hubieron 0 muertos y 0
+			heridos. Se detectó en la fecha 2006-09-01. Se pudo
+			controlar en 1451 minutos y extinguir
+			en 1597 minutos. La causa del incendio
+			fue QUEMA DE BASURA. En la extinción
+			del incendio participaron 73 personas,
+			6 vehiculos pesados y 3
+			medios aereos.</p>
+<script type="text/javascript">
+	        var map = L.map('map').setView([42.822962, -5.634095], 10);
+	        var mapquestLayer = new L.TileLayer('http://{s}.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.png', {
+	            maxZoom: 16,
+	            attribution: 'Data, imagery and map information provided by <a href="http://open.mapquest.co.uk" target="_blank">MapQuest</a>,<a href="http://www.openstreetmap.org/" target="_blank">OpenStreetMap</a> and contributors.',
+	            subdomains: ['otile1','otile2','otile3','otile4']
+	        });
+	        map.addLayer(mapquestLayer);
+	        var marker = L.marker([42.822962, -5.634095]).addTo(map);
+	    </script>
+	</body>
+</html>

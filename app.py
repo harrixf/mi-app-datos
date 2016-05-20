@@ -26,6 +26,9 @@ def detail(number):
     return render_template('detail.html',
         object=csv_dict[number],
     )
+@app.route('/incendios.csv') 
+def send_csv(): 
+    return send_from_directory('static', 'incendios.csv') 
 
 app.run(host=os.getenv('IP', '0.0.0.0'), port=int(os.getenv('PORT', 8080)))
 if __name__ == '__main__':
